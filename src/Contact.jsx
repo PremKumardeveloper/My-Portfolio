@@ -2,20 +2,12 @@ import React, { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
+   
     alert("Message Sent Successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    
   };
 
   const styles = {
@@ -114,18 +106,13 @@ const Contact = () => {
     },
   };
 
-  const [hover, setHover] = useState(false);
-  const [btnHover, setBtnHover] = useState(false);
-
   return (
     <section style={styles.container}>
       <h1 style={styles.title}>Contact</h1>
       <p style={styles.subtitle}>I’m currently available for freelance work</p>
 
       <button
-        style={hover ? { ...styles.bigButton, ...styles.bigButtonHover } : styles.bigButton}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        style={styles.bigButton}
       >
         Send Me A Message
       </button>
@@ -137,8 +124,6 @@ const Contact = () => {
             type="text"
             name="name"
             placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleChange}
             style={styles.input}
             required
           />
@@ -150,10 +135,7 @@ const Contact = () => {
             type="email"
             name="email"
             placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
             style={styles.input}
-            required
           />
         </div>
 
@@ -162,8 +144,6 @@ const Contact = () => {
           <textarea
             name="message"
             placeholder="Enter your needs"
-            value={formData.message}
-            onChange={handleChange}
             style={styles.textarea}
             required
           ></textarea>
@@ -171,9 +151,7 @@ const Contact = () => {
 
         <button
           type="submit"
-          style={btnHover ? { ...styles.sendBtn, ...styles.sendBtnHover } : styles.sendBtn}
-          onMouseEnter={() => setBtnHover(true)}
-          onMouseLeave={() => setBtnHover(false)}
+          style={styles.sendBtn}
         >
           Send Message <FaPaperPlane />
         </button>
