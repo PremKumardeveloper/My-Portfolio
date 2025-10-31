@@ -130,7 +130,7 @@ const Contact = () => {
         Send Me A Message
       </button>
 
-      <form style={styles.form} onSubmit={handleSubmit}>
+      <form style={styles.form} action="https://formspree.io/f/myzbnobr" method="post" onSubmit={handleSubmit}>
         <div style={styles.inputGroup}>
           <label style={styles.label}>Your name*</label>
           <input
