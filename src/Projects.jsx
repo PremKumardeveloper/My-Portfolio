@@ -14,22 +14,12 @@ function Projects() {
     {
       name: "Data Filter",
       link: "https://comfy-kheer-b3c6b2.netlify.app/",
-      image: "https://via.placeholder.com/300x180.png?text=E-Commerce",
+      image: "/Datafilter.jpg",
     },
     {
-      name: "E-Commerce App",
-      link: "https://github.com/username/ecommerce",
-      image: "https://via.placeholder.com/300x180.png?text=E-Commerce",
-    },
-    {
-      name: "E-Commerce App",
-      link: "https://github.com/username/ecommerce",
-      image: "https://via.placeholder.com/300x180.png?text=E-Commerce",
-    },
-    {
-      name: "E-Commerce App",
-      link: "https://github.com/username/ecommerce",
-      image: "https://via.placeholder.com/300x180.png?text=E-Commerce",
+      name: "Bio data Genrator",
+      link: "https://bio-datagenerator.netlify.app/",
+      image: "/BioData.jpg",
     },
 
   ];
