@@ -3,7 +3,7 @@ function Projects() {
   const projects = [
     {
       name: "Portfolio Website",
-      link: "https://github.com/username/portfolio",
+      link: "https://my-portfolio2112.netlify.app/",
       image: "/Portfolio.jpg",
     },
     {
