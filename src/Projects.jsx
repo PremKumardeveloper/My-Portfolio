@@ -8,7 +8,7 @@ function Projects() {
     },
     {
       name: "BMI Calculator",
-      link: "https://github.com/username/ecommerce",
+      link: "https://premkumardeveloper.github.io/BMI-calculator/",
       image: "/Diet-bro.svg",
     },
     {
@@ -20,6 +20,11 @@ function Projects() {
       name: "Bio data Genrator",
       link: "https://bio-datagenerator.netlify.app/",
       image: "/BioData.jpg",
+    },
+    {
+      name: "Finance-Calculator",
+      link: "https://premkumardeveloper.github.io/Finance-Calculator/",
+      image: "/Cul-img.jpg",
     },
 
   ];
