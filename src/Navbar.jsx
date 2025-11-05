@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import './App.css'
+import './App.css';
 
 function Navbar() {
   const [hoveredLink, setHoveredLink] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const styles = {
     navbar: {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: '36px 52px',
+      padding: '24px 32px',
       background: '#232a39',
       borderRadius: '24px 24px 0 0',
       margin: '20px',
+      position: 'relative',
     },
     logo: {
       color: '#fff',
@@ -33,6 +35,37 @@ function Navbar() {
       fontWeight: 500,
       transition: 'color .2s',
     }),
+    hamburger: {
+      display: 'none',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      width: '24px',
+      height: '18px',
+      cursor: 'pointer',
+    },
+    bar: {
+      height: '3px',
+      width: '100%',
+      background: '#fff',
+      borderRadius: '2px',
+    },
+    mobileMenu: {
+      position: 'absolute',
+      top: '100%',
+      left: 0,
+      right: 0,
+      background: '#181e29',
+      borderRadius: '0 0 16px 16px',
+      boxShadow: '0 4px 16px #12f7ff22',
+      listStyle: 'none',
+      padding: '12px 0',
+      margin: 0,
+      display: isMenuOpen ? 'flex' : 'none',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '16px',
+      zIndex: 10,
+    },
   };
 
   const navItems = [
@@ -46,7 +79,9 @@ function Navbar() {
   return (
     <nav style={styles.navbar}>
       <div style={styles.logo}>PremKumar</div>
-      <ul style={styles.navLinks}>
+
+      {/* Desktop Menu */}
+      <ul className="nav-links" style={styles.navLinks}>
         {navItems.map((item, index) => (
           <li key={index}>
             <Link
@@ -60,6 +95,46 @@ function Navbar() {
           </li>
         ))}
       </ul>
+
+      {/* Hamburger Icon */}
+      <div
+        className="hamburger"
+        style={styles.hamburger}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <span style={styles.bar}></span>
+        <span style={styles.bar}></span>
+        <span style={styles.bar}></span>
+      </div>
+
+      {/* Mobile Dropdown */}
+      <ul style={styles.mobileMenu}>
+        {navItems.map((item, index) => (
+          <li key={index}>
+            <Link
+              to={item.path}
+              style={styles.link(false)}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {/* Responsive Styling */}
+      <style>
+        {`
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none;
+          }
+          .hamburger {
+            display: flex;
+          }
+        }
+      `}
+      </style>
     </nav>
   );
 }
